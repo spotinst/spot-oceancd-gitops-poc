@@ -21,19 +21,6 @@ spec:
         port:
           number: 15372
       weight: 0
-  tls:
-  - match:
-    - port: 3000
-      sniHosts:
-      - reviews.bookinfo.com
-      - localhost
-    route:
-    - destination:
-        host: rollouts-demo-stable
-      weight: 100
-    - destination:
-        host: rollouts-demo-canary
-      weight: 0
 
 ---
 apiVersion: networking.istio.io/v1alpha3
@@ -58,17 +45,4 @@ spec:
         host: rollouts-demo-canary
         port:
           number: 15373
-      weight: 0
-  tls:
-  - match:
-    - port: 3000
-      sniHosts:
-      - reviews.bookinfo.com
-      - localhost
-    route:
-    - destination:
-        host: rollouts-demo-stable
-      weight: 100
-    - destination:
-        host: rollouts-demo-canary
       weight: 0
