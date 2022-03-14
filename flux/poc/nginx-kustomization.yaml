@@ -11,5 +11,5 @@ spec:
   sourceRef:
     kind: GitRepository
     name: gitops-poc
-  targetNamespace: canary-poc
+  targetNamespace: canary-nginx
 
