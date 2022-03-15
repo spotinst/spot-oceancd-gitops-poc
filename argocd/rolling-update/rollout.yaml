@@ -3,6 +3,7 @@ kind: Rollout
 metadata:
   name: rollout-rollingupdate
 spec:
+  progressDeadlineSeconds: 180
   replicas: 5
   revisionHistoryLimit: 2
   selector:
@@ -16,6 +17,7 @@ spec:
       containers:
       - name: rollouts-demo
         image: argoproj/rollouts-demo:blue
+        command: ["exit 1"]
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
