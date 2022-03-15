@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: rollout-rollingupdate
-  namespace: default
 spec:
   replicas: 5
   revisionHistoryLimit: 2
