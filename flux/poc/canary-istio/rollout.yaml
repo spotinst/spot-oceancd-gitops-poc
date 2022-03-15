@@ -7,6 +7,13 @@ spec:
   replicas: 1
   strategy:
     canary:
+      analysis:
+        templates:
+          - templateName: success-rate
+        startingStep: 2 # delay starting analysis run until setWeight: 40%
+        args:
+          - name: service-name
+            value: rollouts-demo
       canaryService: rollouts-demo-canary
       stableService: rollouts-demo-stable
       trafficRouting:
@@ -20,7 +27,9 @@ spec:
             - secondary # At least one route is required
       steps:
       - setWeight: 5
-      - pause: {}
+      - pause: {duration: 2m}
+      - setWeight: 30
+      - pause: {duration: 2m}
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -33,7 +42,7 @@ spec:
     spec:
       containers:
       - name: rollouts-demo
-        image: argoproj/rollouts-demo:yellow
+        image: argoproj/rollouts-demo:blue
         ports:
         - name: http
           containerPort: 8080
