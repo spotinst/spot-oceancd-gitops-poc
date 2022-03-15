@@ -26,9 +26,9 @@ spec:
             - secondary # At least one route is required
       steps:
       - setWeight: 5
-      - pause: {duration: 5m}
+      - pause: {duration: 2m}
       - setWeight: 30
-      - pause: {duration: 5m}
+      - pause: {duration: 2m}
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
       - name: rollouts-demo
-        image: argoproj/rollouts-demo:blue
+        image: argoproj/rollouts-demo:yellow
         ports:
         - name: http
           containerPort: 8080
