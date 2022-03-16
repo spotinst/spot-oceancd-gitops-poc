@@ -3,7 +3,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: gitops-poc-canary-nginx
-  namespace: flux-system
+  namespace: canary-nginx
 spec:
   interval: 5m0s
   path: ./flux/poc/nginx
