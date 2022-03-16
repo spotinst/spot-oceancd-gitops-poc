@@ -11,5 +11,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: gitops-poc
+    namespace: flux-system
   targetNamespace: canary-nginx
 
